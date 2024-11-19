@@ -1,0 +1,177 @@
+/* Global Styles: Root Variables */
+:root {
+  /* Light color palette */
+  --background: #f9f9f9; /* Light neutral background */
+  --foreground: #333333; /* Dark text for readability */
+  --primary: #4caf50; /* Bright green for primary elements */
+  --primary-light: #81c784; /* Lighter green for hover effects */
+  --secondary: #ff9800; /* Vibrant orange for secondary elements */
+  --secondary-light: #ffc107; /* Light orange for accents */
+  --gray-light: #fdfdfd; /* Soft white for cards and sections */
+  --gray-dark: #e0e0e0; /* Light gray for subtle borders */
+  --border-radius: 8px; /* Soft rounded corners */
+
+  /* Typography */
+  --font-primary: 'Arial', sans-serif;
+  --font-secondary: 'Times New Roman', serif;
+
+  /* Box shadows */
+  --box-shadow-light: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #eeeeee; /* Light mode focus */
+    --foreground: #1a1a1a;
+    --primary: #388e3c;
+    --primary-light: #66bb6a;
+    --secondary: #ef6c00;
+    --secondary-light: #ffa726;
+    --gray-light: #f5f5f5;
+    --gray-dark: #bdbdbd;
+  }
+}
+
+/* Page Layout */
+.page {
+  background-color: var(--background);
+  color: var(--foreground);
+  display: grid;
+  grid-template-rows: 20px 1fr 20px;
+  align-items: center;
+  justify-items: center;
+  min-height: 100vh;
+  padding: 60px;
+  gap: 40px;
+  font-family: var(--font-primary);
+}
+
+/* Main Content */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.main ol {
+  list-style: decimal inside;
+  padding: 0;
+  font-family: var(--font-secondary);
+  font-size: 18px;
+  color: var(--foreground);
+}
+
+.main li:not(:last-of-type) {
+  margin-bottom: 12px;
+}
+
+.main code {
+  font-family: var(--font-primary);
+  background: var(--primary-light);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* Buttons and Call-to-Actions */
+.ctas {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.ctas a {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: var(--border-radius);
+  background-color: var(--primary);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: var(--box-shadow-light);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.ctas a:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+a.secondary {
+  background-color: var(--secondary);
+}
+
+a.secondary:hover {
+  background-color: var(--secondary-light);
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer a {
+  color: var(--primary);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer a:hover {
+  color: var(--primary-light);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .page {
+    padding: 20px;
+  }
+
+  .main ol {
+    font-size: 16px;
+  }
+
+  .ctas {
+    flex-direction: column;
+  }
+
+  .ctas a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+  }
+}
+
+/* Card-Like Event Styling */
+.event-card {
+  background-color: var(--gray-light);
+  border: 1px solid var(--gray-dark);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--box-shadow-light);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.margin-top {
+  margin-top: 20px;
+}
