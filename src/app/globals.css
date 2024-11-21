@@ -1,177 +1,138 @@
-/* Global Styles: Root Variables */
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
 :root {
-  /* Light color palette */
-  --background: #f9f9f9; /* Light neutral background */
-  --foreground: #333333; /* Dark text for readability */
-  --primary: #4caf50; /* Bright green for primary elements */
-  --primary-light: #81c784; /* Lighter green for hover effects */
-  --secondary: #ff9800; /* Vibrant orange for secondary elements */
-  --secondary-light: #ffc107; /* Light orange for accents */
-  --gray-light: #fdfdfd; /* Soft white for cards and sections */
-  --gray-dark: #e0e0e0; /* Light gray for subtle borders */
-  --border-radius: 8px; /* Soft rounded corners */
-
-  /* Typography */
-  --font-primary: 'Arial', sans-serif;
-  --font-secondary: 'Times New Roman', serif;
-
-  /* Box shadows */
-  --box-shadow-light: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  --box-shadow-hover: 0px 6px 10px rgba(0, 0, 0, 0.15);
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #eeeeee; /* Light mode focus */
-    --foreground: #1a1a1a;
-    --primary: #388e3c;
-    --primary-light: #66bb6a;
-    --secondary: #ef6c00;
-    --secondary-light: #ffa726;
-    --gray-light: #f5f5f5;
-    --gray-dark: #bdbdbd;
-  }
-}
-
-/* Page Layout */
-.page {
-  background-color: var(--background);
-  color: var(--foreground);
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100vh;
-  padding: 60px;
-  gap: 40px;
-  font-family: var(--font-primary);
-}
-
-/* Main Content */
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-}
-
-.main ol {
-  list-style: decimal inside;
+* {
+  margin: 0;
   padding: 0;
-  font-family: var(--font-secondary);
-  font-size: 18px;
-  color: var(--foreground);
+  box-sizing: border-box;
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 12px;
-}
-
-.main code {
+body {
+  color: rgba(var(--color-primary-rgb), 1);
   font-family: var(--font-primary);
-  background: var(--primary-light);
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-weight: bold;
 }
 
-/* Buttons and Call-to-Actions */
-.ctas {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
+body::-webkit-scrollbar {
+  display: none;
 }
 
-.ctas a {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: var(--border-radius);
-  background-color: var(--primary);
-  color: #ffffff;
+a {
+  color: var(--color-links);
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--color-links-hover);
   text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
-  box-shadow: var(--box-shadow-light);
-  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
-.ctas a:hover {
-  background-color: var(--primary-light);
-  transform: translateY(-3px);
-  box-shadow: var(--box-shadow-hover);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-primary);
 }
 
-a.secondary {
-  background-color: var(--secondary);
+#main {
+  margin-top: 90px;
 }
 
-a.secondary:hover {
-  background-color: var(--secondary-light);
+/*--------------------------------------------------------------
+# Sections & Section Header
+--------------------------------------------------------------*/
+section {
+  padding: 40px 0;
+  overflow: hidden;
+  scroll-margin-top: 70px;
 }
 
-/* Footer */
-.footer {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+.section-header {
+  border-bottom: 2px solid var(--color-black);
 }
 
-.footer a {
-  color: var(--primary);
-  font-size: 14px;
-  text-decoration: none;
-  transition: color 0.2s;
+.section-header h2 {
+  font-size: 50px;
+  color: var(--color-black);
 }
 
-.footer a:hover {
-  color: var(--primary-light);
+.section-header p {
+  margin-bottom: 0;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .page {
-    padding: 20px;
-  }
-
-  .main ol {
-    font-size: 16px;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    width: 100%;
-    text-align: center;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-  }
+/*--------------------------------------------------------------
+# Page title
+--------------------------------------------------------------*/
+.page-title {
+  font-size: 70px;
+  color: var(--color-black);
 }
 
-/* Card-Like Event Styling */
-.event-card {
-  background-color: var(--gray-light);
-  border: 1px solid var(--gray-dark);
-  border-radius: var(--border-radius);
-  padding: 20px;
-  box-shadow: var(--box-shadow-light);
-  transition: box-shadow 0.2s, transform 0.2s;
+/* Form Input Fieldds */
+.form-control:active,
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: var(--color-black);
 }
 
-.event-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--box-shadow-hover);
+/* Botton */
+.btn:active,
+.btn:focus {
+  outline: none;
 }
 
-/* Utility Classes */
+.btn.btn-primary {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+/*--------------------------------------------------------------
+# Not Found Page
+--------------------------------------------------------------*/
+
+.not-found {
+  padding: 0;
+  background: url('../../public/assets/img/not-found-bj.jpg');
+  background-position: center;
+  background-size: cover;
+}
+.cover-background {
+  position: relative !important;
+  background-size: cover !important;
+  overflow: hidden !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.p-0 {
+  padding: 0 !important;
+}
+
+.error-page {
+  background-color: #bababa4a;
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(234, 234, 235, 0.2);
+  padding: 80px 20px;
+}
 .text-center {
-  text-align: center;
+  text-align: center !important;
 }
-
-.margin-top {
-  margin-top: 20px;
+.error-page h1 {
+  font-size: 200px;
+  line-height: 1;
+  font-weight: 600;
+}
+.text-secondary {
+  color: #15395a !important;
+}
+.mb-4 {
+  margin-bottom: 1.5rem !important;
 }

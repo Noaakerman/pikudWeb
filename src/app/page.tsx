@@ -1,9 +1,9 @@
 import Calendar from '@/components/Calendar';
-
+import Header from '@/components/Header';
 export default function Home() {
     return (
         <main>
-            <h1>Event Calendar</h1>
+            <Header />
             <Calendar />
         </main>
     );
